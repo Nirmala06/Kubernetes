@@ -1,0 +1,8 @@
+Kubernetes is an orchestration engine and open-source platform for managing containerized application workloads and services, that facilitates both declarative configuration and automation. Kubernetes is also commonly referred as K8s.
+
+Actually, Kubernetes is not a replacement for Docker, But Kubernetes can be considered as a replacement for Docker Swarm, Kubernetes is significantly more complex than Swarm, and requires more work to deploy.
+
+Advantages of Kubernetes
+Kubernetes can speed up the development process by making easy, automated deployments, updates (rolling-update) and by managing our apps and services with almost zero downtime. It also provides self-healing. Kubernetes can detect and restart services when a process crashes inside the container. Kubernetes is originally developed by Google, it is open-sourced since its launch and managed by a large community of contributors. It makes better use of hardware to maximize resources needed to run your enterprise apps. It can be used to Scale containerized applications and their resources on the fly. Any developer can package up applications and deploy them on Kubernetes with basic Docker knowledge.
+
+
