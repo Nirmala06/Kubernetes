@@ -5,4 +5,49 @@ Actually, Kubernetes is not a replacement for Docker, But Kubernetes can be cons
 Advantages of Kubernetes
 Kubernetes can speed up the development process by making easy, automated deployments, updates (rolling-update) and by managing our apps and services with almost zero downtime. It also provides self-healing. Kubernetes can detect and restart services when a process crashes inside the container. Kubernetes is originally developed by Google, it is open-sourced since its launch and managed by a large community of contributors. It makes better use of hardware to maximize resources needed to run your enterprise apps. It can be used to Scale containerized applications and their resources on the fly. Any developer can package up applications and deploy them on Kubernetes with basic Docker knowledge.
 
+Kubectl
+
+Kubectl is a command line configuration tool (CLI) for Kubernetes used to interact with master node of kubernetes. Kubectl has a config file called kubeconfig, this file has the information about server and authentication information to access the API Server.
+
+Kubernetes Master
+
+Kubernetes Master is a main node responsible for managing the entire kubernetes clusters. It handles the orchestration of the worker nodes. It has three main components that take care of communication, scheduling and controllers.
+
+API Server – Kube API Server interacts with API, Its a frontend of the kubernetes control plane.
+Scheduler – Scheduler watches the pods and assigns the pods to run on specific hosts.
+Kube-Controller-Manager – Controller manager runs the controllers in background which runs different tasks in Kubernetes cluster.
+Some of the controllers are,
+
+Node controller – Its responsible for noticing and responding when nodes go down.
+Replication controllers – It maintains the number of pods. It controls how many identical copies of a pod should be running somewhere on the cluster.
+Endpoint controllers joins services and pods together.
+Services account and Token controllers handles access managements.
+Replicaset controllers ensure number of replication of pods running at all time.
+Deployment controller provides declarative updates for pods and replicasets.
+Daemonsets controller ensure all nodes run a copy of specific pods.
+Jobs controller is the supervisor process for pods carrying out batch jobs
+Services allow the communication.
+Etcd
+
+etcd is a simple distribute key value store. kubernetes uses etcd as its database to store all cluster datas. some of the data stored in etcd is job scheduling information, pods, state information and etc.
+
+Worker Nodes
+
+Worker nodes are the nodes where the application actually running in kubernetes cluster, it is also know as minion. These each worker nodes are controlled by the master node using kubelet process.
+Container Platform must be running on each worker nodes and  it works together with kubelet to run the containers, This is why we use Docker engine and takes care of managing images and containers. We can also use other container platforms like CoreOS, Rocket.
+
+Requirements of Worker Nodes:
+1. kubelet must be running
+2. Docker container platform
+3. kube-proxy must be running
+4. supervisord
+
+Kubelet
+
+Kubelet is the primary node agent runs on each nodes and reads the container manifests which ensures that containers are running and healthy.
+
+Kube-proxy
+
+Kube-proxy is a process helps us to have network proxy and loadbalancer for the services in a single worker node. It performs network routing for tcp and udp packets, and performs connection folding. Worker nodes can be exposed to internet via kubeproxy.
+
 
