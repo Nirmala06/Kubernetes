@@ -1,0 +1,57 @@
+The only difference between replica set and replication controller is the selector types.
+
+The replication controller supports equality based selectors whereas the replica set supports equality based as well as set based selectors.
+
+Equality based Selectors
+Equality based selectors allow filtering by label keys and values. Matching objects must satisfy all of the specified label constraints, though they may have additional labels as well. 
+
+Three operators used in set based equality based selectors are = , == , !=. The first two represent equality (and are simply synonyms), while the latter represents inequality. 
+
+For example, if we provide the following selectors:
+env = prod
+tier != frontend
+Here, we’ll select all resources with key equal to environment and value equal to production. The latter selects all resources with key equal to tier and value distinct from frontend, and all resources with no labels with the tier key.
+
+One usage scenario for equality-based label requirement is for Pods to specify node selection criteria.
+
+Set Based Selectors
+Unlike Equality based, Set-based label selectors allow filtering keys according to a set of values.
+
+Three kinds of operators used in set-based selectors are in , notin, exists(only the key identifier).
+
+For example, if we provide the following selectors:
+env in (prod, qa)
+tier notin (frontend, backend)
+partition
+Here, in the first selector will selects all resources with key equal to environment and value equal to production or qa.
+The second example selects all resources with key equal to tier and values other than frontend and backend, and all resources with no labels with the tier key. The third example selects all resources including a label with key partition; no values are checked.
+
+The set-based label selector is a general form of equality since environment=production is equivalent to environment in (production). Similarly for != and notin.
+
+Replica Set manifest
+Just as replication controller, the replica set has a same spec file with the difference in the as shown below:
+
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: nginx-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      env: prod
+    matchExpressions:
+    - { key: tier, operator: In, values: [frontend] }
+  template:
+    metadata:
+      name: nginx
+      labels: 
+        env: prod
+        tier: frontend
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx
+        ports:
+        - containerPort: 80
