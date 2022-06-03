@@ -1,3 +1,5 @@
+```
+
 ## Delete replicationcontroller
 
 $ kubectl delete replicationcontroller myapp-rc
@@ -78,5 +80,5 @@ http://192.168.59.100:31027.   ---- access this url from browser.
   
  LOADBALANCER https://kubernetes.io/docs/tutorials/hello-minikube/
 
-
+```
 
