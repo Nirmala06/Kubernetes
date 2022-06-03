@@ -1,6 +1,6 @@
 https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 
-<code>
+`code`
 
 # $ kubectl set image deployment/myapp-replicaset  nginx=nginx:1.16.1
 deployment.apps/myapp-replicaset image updated
@@ -18,4 +18,4 @@ Waiting for deployment "myapp-replicaset" rollout to finish: 1 old replicas are 
 Waiting for deployment "myapp-replicaset" rollout to finish: 1 old replicas are pending termination...
 deployment "myapp-replicaset" successfully rolled out
 
-<code>
+`code`
