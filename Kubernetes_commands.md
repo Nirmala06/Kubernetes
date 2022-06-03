@@ -51,3 +51,16 @@ Kubernetes assigns this Service an IP address (sometimes called the "cluster IP"
 The controller for the Service selector continuously scans for Pods that match its selector, and then POSTs any updates to an Endpoint object also named "my-service".
 
 
+kubectl get deployment
+NAME               READY   UP-TO-DATE   AVAILABLE   AGE
+myapp-replicaset   3/3     3            3           128m
+$ kubectl expose deployment myapp-replicaset --type=NodePort --name=ex-nginx-service --port=80
+service/ex-nginx-service exposed
+$ kubectl get svc
+NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+ex-nginx-service   NodePort    10.111.28.186   <none>        80:31027/TCP   14s
+kubernetes         ClusterIP   10.96.0.1       <none>        443/TCP        2d6h
+  
+  
+
+
