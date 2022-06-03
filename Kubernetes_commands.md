@@ -67,6 +67,9 @@ NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
 ex-nginx-service   NodePort    10.111.28.186   <none>        80:31027/TCP   14s
 kubernetes         ClusterIP   10.96.0.1       <none>        443/TCP        2d6h
   
+## $ minikube service --url ex-nginx-service
   
+http://192.168.59.100:31027.   ---- access this url from browser.
+
 
 
