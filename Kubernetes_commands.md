@@ -70,6 +70,13 @@ kubernetes         ClusterIP   10.96.0.1       <none>        443/TCP        2d6h
 ## $ minikube service --url ex-nginx-service
   
 http://192.168.59.100:31027.   ---- access this url from browser.
+  
+  
+  
+ #### Service type LOADBALANCER
+  
+  
+ LOADBALANCER https://kubernetes.io/docs/tutorials/hello-minikube/
 
 
 
