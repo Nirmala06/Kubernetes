@@ -1,10 +1,10 @@
-##Delete replicationcontroller
+## Delete replicationcontroller
 
 $ kubectl delete replicationcontroller myapp-rc
 replicationcontroller "myapp-rc" deleted
 
 
-##Delete Replicaset
+## Delete Replicaset
 
 
 kubectl delete rs myapp-replicaset
